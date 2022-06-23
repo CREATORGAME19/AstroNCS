@@ -113,7 +113,9 @@ with open(data_file, 'r') as f:
                                             bearing = (math.pi)
                                     #bearing = bearing-math.pi
                                     R = 6378.1 #Radius of the Earth
-
+                                    
+                                    #Converts to coordinates using bearings between points and distance
+                                    
                                     lat1 = math.radians(lat) #Current lat point converted to radians
                                     lon1 = math.radians(long) #Current long point converted to radians
 
@@ -148,6 +150,9 @@ with open(data_file, 'r') as f:
                                         roundedlon = "W0"+roundedlon[1:]
                                     else:
                                         roundedlon = "W"+roundedlon[1:]
+                                        
+                                #Downloads the necessary layer data from the internet
+                                
                                 if mapdatainfo != (str(roundedlat)+"_"+str(roundedlon)):
                                     mapdata = cv2.imread('Forestation Mapping Data\\'+str(roundedlat)+"_"+str(roundedlon)+'.tif')
                                     mapdatainfo = str(roundedlat)+"_"+str(roundedlon)
